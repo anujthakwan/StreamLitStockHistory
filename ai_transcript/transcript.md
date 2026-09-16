@@ -88,3 +88,11 @@ AI: (Diagnosed the issue as a likely rate-limiting response from Yahoo Finance t
 User: "Could not load valid stock data for symbol AAPL. Error: 'NoneType' object has no attribute 'headers'"
 
 AI: (Fixed the AttributeError by properly creating a requests.Session object with the custom User-Agent and passing it to the yf.Ticker constructor, instead of attempting to modify a None session attribute.)
+
+---
+
+
+### Turn 12
+User: "FYI: It seems the rate limit error were caused by yfinance old library usage. I updated the libraray and now its fine"
+
+AI: (Acknowledged that updating the yfinance library resolved the persistent rate-limiting issues, confirming that the library version was the primary driver of the 429 errors.)
