@@ -7,6 +7,7 @@ A modularized, production-grade Streamlit application for analyzing stock price 
 StreamLitStockHistory/
 ├── app.py                     # Streamlit frontend (visualization layer)
 ├── etl.py                     # ETL Pipeline (CLI & orchestration)
+├── ai_transcript/             # AI chat
 ├── src/                       # Domain-specific modules
 │   ├── extractor.py           # Data extraction from yfinance
 │   ├── validator.py           # Data quality validation
