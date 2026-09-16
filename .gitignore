@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Project configuration & IDE
+.idea/
+.pytest_cache/
+
+# Data
+data/raw/
+data/processed/
+
+# System
+.DS_Store
