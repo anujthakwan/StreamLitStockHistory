@@ -60,7 +60,7 @@ def run_etl(symbol: str, period: str = "2y", cache_raw: bool = True) -> tuple[pd
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run ETL Pipeline for Stock History Analytics.")
-    parser.add_argument("--symbol", type=str, required=True, help="Stock ticker symbol (e.g., AAPL)")
+    parser.add_argument("--symbol", type=str, default="CRDO", help="Stock ticker symbol (e.g., AAPL)")
     parser.add_argument("--period", type=str, default="2y", help="Lookback period (e.g., 1y, 2y, 5y, max)")
     parser.add_argument("--no-cache", action="store_true", help="Disable raw caching")
 

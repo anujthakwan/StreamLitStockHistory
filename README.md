@@ -36,7 +36,8 @@ The Streamlit app automatically invokes the ETL pipeline.
 
 ### Running the ETL Pipeline (CLI)
 You can run the ETL pipeline independently for a specific ticker:
-`python etl.py --symbol AAPL --period 2y`
+`python etl.py --symbol AAPL --period 2y` or 
+`python etl.py` (defaults to stock symbol `CRDO` and period `2y`)
 
 ### Testing
 Run the full test suite using pytest:
