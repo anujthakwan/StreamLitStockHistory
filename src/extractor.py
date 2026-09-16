@@ -4,6 +4,10 @@ import json
 from datetime import datetime
 import pandas as pd
 import yfinance as yf
+import logging
+import requests
+
+logging.basicConfig(level=logging.INFO)
 
 # Determine directories relative to this file
 SRC_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -14,7 +18,14 @@ RAW_DIR = os.path.join(PROJECT_ROOT, "data", "raw")
 def extract_stock_data(symbol: str, period: str = "2y", cache_raw: bool = True) -> tuple[
     pd.DataFrame, dict, pd.Series | None]:
     """Extracts price history and quarterly EPS from Yahoo Finance."""
-    ticker = yf.Ticker(symbol)
+    
+    # Create a custom session with a user-agent to avoid rate limiting
+    session = requests.Session()
+    session.headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+    
+    ticker = yf.Ticker(symbol, session=session)
+    
+    logging.info(f"Fetching data for {symbol} with period {period}.")
     df = ticker.history(period=period)
     
     # Safely get ticker info, default to empty dict if it fails
